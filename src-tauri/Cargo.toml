@@ -1,0 +1,87 @@
+[package]
+name = "virus-vigil"
+version = "0.1.0"
+description = "Virus Vigil - a guide and health card for your laptop"
+authors = ["Arnav Agarwal"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "virus_vigil_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+flate2 = "1"
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri-plugin-dialog = "2"
+tauri-plugin-vigil-phone = { path = "../plugins/vigil-phone" }
+sha2 = "0.10"
+sha1 = "0.10"
+regex = "1"
+zip = { version = "2", default-features = false, features = ["deflate", "aes-crypto"] }
+flate2 = "1"
+tar = { version = "0.4", default-features = false }
+rusqlite = { version = "0.32", features = ["bundled"] }
+rqrr = { version = "0.11", default-features = false }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp", "bmp", "gif"] }
+
+# YARA-X (BSD-3), laptop and phone (phone since 25 Sep evening, behind a crash guard in yara.rs).
+# Pinned to 1.19: 1.20 needs Rust 1.93 and this machine's toolchain is 1.92 (upgrading Rust
+# changes every project here; 25 Sep 2026).
+yara-x = { version = "=1.19.0", default-features = false, features = ["pe-module", "dotnet-module", "elf-module", "hash-module", "math-module", "constant-folding", "fast-regexp"] }
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+# "unwind", not "abort" (29 Sep, 0.1.26 crashed again and again on his Vivo): a panic while reading one
+# odd file must cost that file (folderscan catches it), never the whole app.
+panic = "unwind"
+strip = true
+
+# Keep the build folder small: it lives on C:, which fills up (24 Sep 2026).
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+
+# The YARA scan runs these crates on every byte of a file; unoptimised they time out on a
+# 300 MB chrome.dll (measured 25 Sep: > 30 s in dev). Optimise them even in dev builds.
+[profile.dev.package.yara-x]
+opt-level = 3
+[profile.dev.package.aho-corasick]
+opt-level = 3
+[profile.dev.package.regex-automata]
+opt-level = 3
+[profile.dev.package.memchr]
+opt-level = 3
+# Compiling the 1,381 rules at start took 15.6 s in the dev exe (25 Sep), so a file dropped in the
+# first seconds waited. The rule compiler (parser + wasmtime/cranelift) is optimised too.
+[profile.dev.package.yara-x-parser]
+opt-level = 3
+[profile.dev.package.cranelift-codegen]
+opt-level = 3
+[profile.dev.package.cranelift-frontend]
+opt-level = 3
+[profile.dev.package.cranelift-bforest]
+opt-level = 3
+[profile.dev.package.regalloc2]
+opt-level = 3
+[profile.dev.package.wasmtime]
+opt-level = 3
+[profile.dev.package.wasmtime-environ]
+opt-level = 3
+[profile.dev.package.wasmtime-internal-cranelift]
+opt-level = 3

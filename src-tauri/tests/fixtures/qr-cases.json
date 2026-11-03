@@ -1,0 +1,36 @@
+[
+ {
+  "file": "qr-upi.png",
+  "codes": [
+   "upi://pay?pa=refund.desk@okaxis&pn=Refund%20Desk&am=5000&cu=INR&tn=Claim%20refund"
+  ]
+ },
+ {
+  "file": "qr-url.png",
+  "codes": [
+   "https://bit.ly/3xYz-parcel"
+  ]
+ },
+ {
+  "file": "qr-photo.jpg",
+  "codes": [
+   "https://bit.ly/3xYz-parcel"
+  ]
+ },
+ {
+  "file": "qr-two.png",
+  "codes": [
+   "upi://pay?pa=refund.desk@okaxis&pn=Refund%20Desk&am=5000&cu=INR&tn=Claim%20refund",
+   "https://bit.ly/3xYz-parcel"
+  ]
+ },
+ {
+  "file": "qr-none.png",
+  "codes": []
+ },
+ {
+  "file": "qr-broken.png",
+  "codes": [],
+  "unreadable": true
+ }
+]

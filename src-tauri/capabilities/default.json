@@ -1,0 +1,38 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Virus Vigil main window: pick a file, open web pages and Windows settings pages, and put a helpline number (1930, 112, 181, 1098) into the phone's dialer. Nothing else.",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open",
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        {
+          "url": "https://*"
+        },
+        {
+          "url": "windowsdefender:*"
+        },
+        {
+          "url": "ms-settings:*"
+        },
+        {
+          "url": "tel:1930"
+        },
+        {
+          "url": "tel:112"
+        },
+        {
+          "url": "tel:181"
+        },
+        {
+          "url": "tel:1098"
+        }
+      ]
+    }
+  ]
+}

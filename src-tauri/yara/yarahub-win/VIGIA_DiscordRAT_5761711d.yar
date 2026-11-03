@@ -1,0 +1,61 @@
+rule VIGIA_DiscordRAT_5761711d {
+    meta:
+        date = "2026-11-01"
+        yarahub_uuid = "d0ee682c-760c-4fd5-8742-ae1994c0c24b"
+        yarahub_license = "CC BY 4.0"
+        yarahub_rule_matching_tlp = "TLP:WHITE"
+        yarahub_rule_sharing_tlp = "TLP:WHITE"
+        yarahub_reference_md5 = "9e7374ba9206b0fe5898bbbb8f4077dc"
+        contact = "javigp@usal.es"
+        vigia_rule_id = "5761711d-7886-4556-b738-1d7d873c1460"
+        family = "DiscordRAT"
+        description = "DiscordRAT: code shared by its builds (snapshot malware_snapshot_001.json); held-out 9/9, 0 benign or other-family hits"
+        author = "VIG-IA - Cognitive Threat Intelligence System for Smart Territories and Tourism Sector"
+
+    
+        /*
+        * DISCLAIMER
+        * The strings in this rule are code that the VIG-IA platform mined from a family's samples obtained
+        * from MalwareBazaar (https://bazaar.abuse.ch), kept only when no goodware and no file of
+        * another family contains them.
+        *
+        * The resulting rule has undergone refinement via AI-assisted processing and validation against
+        * curated goodware and malware corpora. However, this pipeline cannot guarantee high generalization
+        * across all malware variants and environments. False positives and blind spots may occur.
+        *
+        * === Rule Evaluation Summary ===
+        * False Positive Rate: 0.00% (on validated goodware corpus)
+        * Family files matched: 17 of the DiscordRAT files in the VIG-IA audit (0 goodware, 0 other families)
+        *
+        * === TLP:WHITE Classification Justification ===
+        * - All rules are derived from publicly available samples from MalwareBazaar (TLP:WHITE).
+        * - No proprietary, internal, or inferred intelligence has been used in their creation.
+        * - All matching logic and strings are directly observable in the analyzed binaries.
+        * - Rules are designed for general-purpose sharing and deployment without restrictions.
+        * - Licensing and classification conform to YARAhub and YARAify community guidelines.
+        */
+
+    strings:
+        $c0 = { e67e5f00000a729f000070176f6500000a72fb000070286600000a6f6700000a286800000a286900000a286600000a6f6700000a6f6200000a2a9e7e7500000a }
+        $c1 = { 880000040d027c88000004fe151500001b0215250a7d85000004120328a600000a26027b8700000472cf0a007028280000066fa400000a0d120328a500000a2d }
+        $c2 = { 0a7dd40000040211077dda000004027cd5000004120702286900002bde53027bda0000041307027cda000004fe151500001b0215250a7dd4000004120728a600 }
+        $c3 = { a400000a1306120628a500000a2d42021f37250a7dfb0000040211067d01010004027cfc000004120602287a00002bdd6d090000027b010100041306027c0101 }
+        $c4 = { 720020002f002000530079006e0074006100780020003d00200022002100750070006c006f00610064002000660069006c0065002e0070006e00670022002000 }
+        $c5 = { 003e0020002100640065006c0065007400650020003d002000640065006c006500740065007300200061002000660069006c00650020002f002000530079006e }
+        $c6 = { 157dcd00000412007cce0000041200283000002b12007cce000004281800000a2a0013300200370000002f0000111200281600000a7dd50000041200027dd6 }
+        $c7 = { 000a28280000066fa400000a0d120328a500000a2d3f0219250a7dc800000402097dcc000004027cc9000004120302286300002bddb5000000027bcc000004 }
+        $c8 = { 150c0000010215250a7dcd0000041204281f00000a7e2c00000472e20200706f0b01000a6f2101000a0b02167dd20000040006183b8d000000076f2201000a }
+        $c9 = { 700828460000066f1c00000a13041204281d00000a2d410217250a7de60000040211047dec000004027ce7000004120402286f00002bdde3020000027bec00 }
+        $c10 = { 000004027cfc000004120402287800002bddc7220000027bff0000041304027cff000004fe150c0000010215250a7dfb0000041204281f00000a3870220000 }
+        $c11 = { 000004027cfc000004120402287800002bddc61e0000027bff0000041304027cff000004fe150c0000010215250a7dfb0000041204281f00000a386f1e0000 }
+        $c12 = { 72cf30007028280000066fa400000a1306120628a500000a2d42021f20250a7dfb0000040211067d01010004027cfc000004120602287a00002bddf4130000 }
+        $c13 = { 72cf30007028280000066fa400000a1306120628a500000a2d42021f31250a7dfb0000040211067d01010004027cfc000004120602287a00002bdd410c0000 }
+        $c14 = { 436f7079506978656c4f7065726174696f6e0053797374656d2e5765622e5363726970742e53657269616c697a6174696f6e0075416374696f6e0053797374 }
+        $c15 = { 0064002e00670067002f003f0076003d003900260065006e0063006f007200640069006e0067003d006a0073006f006e0000056f00700000036400000f6900 }
+        $c16 = { 006d002000730065006e00740065006e006300650020002f002000530079006e0074006100780020003d0020002200210076006f0069006300650020007400 }
+        $c17 = { 006e0020006f007200200061006c006c002000730065007300730069006f006e00730020002f002000530079006e0074006100780020003d00200022002100 }
+        $c18 = { 007c110000041200280300002b12007c11000004281800000a2a001330020037000000040000111200281600000a7d170000041200027d18000004120015 }
+        $c19 = { 00000402147d19000004027c1a000004fe150f000001027c1b000004fe150500001b027c17000004282100000a2a000000414c0000000000006400000080 }
+    condition:
+        any of them
+}

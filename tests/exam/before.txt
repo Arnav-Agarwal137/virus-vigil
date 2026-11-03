@@ -1,0 +1,20 @@
+forget: {"removed":["storage-fingerprints.tsv","apk-fingerprints.tsv"]}
+sweep 9.312s checked=true files=26
+A1  MISSED                    the industry test virus, plain
+A2  MISSED                    test virus renamed as a photo
+A3  MISSED                    test virus in a zip
+A4  MISSED                    test virus 3 zips deep
+A5  MISSED                    test virus hidden inside an app file
+A6  MISSED                    test virus in a .tar.gz
+A7  SILENT                    test virus in a password zip (no scanner can read it; a good one says so)
+B1  MISSED                    fake 'WhatsApp' app: reads SMS, accessibility, draws over apps, hides its icon
+B2  MISSED                    that same app file named as a PDF
+B3  MISSED                    the KYC-update scam app, arriving via WhatsApp
+B4  MISSED                    the fake app inside a zip
+C1  MISSED                    Windows program with a double extension
+C2  MISSED                    script that downloads and runs a program (address can never exist)
+C3  MISSED                    bank login page that sends to a fake address
+C4  MISSED                    Word file with a macro that runs PowerShell on open
+Z1  clean (right)             control: an ordinary file
+Z2  clean (right)             control: an ordinary zip
+SCORE caught 0 of 15; false alarms 0

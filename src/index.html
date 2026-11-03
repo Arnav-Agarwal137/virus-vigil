@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virus Vigil</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="main.js"></script>
+  </head>
+
+  <body>
+    <!-- Moving light behind everything: three slow blobs over a fine grid. -->
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div class="app">
+      <section class="talk" aria-label="Talk to Vigil">
+        <header class="talk-head">
+          <span class="avatar big" data-avatar></span>
+          <div class="who">
+            <h1>Vigil</h1>
+            <p><span class="live-dot" aria-hidden="true"></span>watching this laptop</p>
+          </div>
+          <button type="button" class="details-toggle" id="deep-toggle" aria-pressed="false" title="Show the technical details under every answer">
+            <span class="knob" aria-hidden="true"></span> Details
+          </button>
+        </header>
+
+        <nav class="pinned" aria-label="What do you want to do?">
+          <button type="button" class="pin" data-go="checkup">
+            <span class="pin-icon" aria-hidden="true">&#9829;</span>
+            <span><b>Check my laptop</b><small>Is everything switched on?</small></span>
+          </button>
+          <button type="button" class="pin" data-go="hacked">
+            <span class="pin-icon" aria-hidden="true">&#8634;</span>
+            <span><b>Was I hacked before?</b><small>Old infections and your accounts</small></span>
+          </button>
+          <button type="button" class="pin" data-go="safe">
+            <span class="pin-icon" aria-hidden="true">?</span>
+            <span><b>Is this safe?</b><small>A link, a message, an app file</small></span>
+          </button>
+        </nav>
+
+        <div class="feed" id="feed" role="log" aria-live="polite"></div>
+
+        <form class="ask" id="ask" autocomplete="off">
+          <button type="button" class="ask-file" id="pick-file" title="Choose a file to check">
+            <span aria-hidden="true">&#128206;</span><span class="sr">Choose a file</span>
+          </button>
+          <label class="sr" for="ask-input">Paste a link or a message, or ask what a word means</label>
+          <input id="ask-input" type="text" placeholder="Paste a link or message, or ask &ldquo;what is phishing?&rdquo;" />
+          <button type="submit" class="ask-send">Check</button>
+        </form>
+        <div class="drop-hint" aria-hidden="true">Drop the file - I'll check it here; only its fingerprint is asked about online, never the file</div>
+      </section>
+
+      <aside class="card" id="card" aria-label="Protection pass">
+        <button type="button" class="card-strip" id="card-strip" aria-expanded="false">
+          <span class="strip-title">Protection pass</span>
+          <span class="strip-count" id="strip-count">not checked yet</span>
+          <span class="strip-arrow" aria-hidden="true">&#9662;</span>
+        </button>
+        <div class="card-sheet">
+          <div class="pass">
+            <header class="card-top">
+              <div class="pass-id">
+                <p class="card-kicker">Virus Vigil &middot; Protection pass</p>
+                <h2>This laptop</h2>
+                <p class="card-date-line">Last checkup <span id="card-date">&mdash;</span></p>
+              </div>
+              <div class="ring" id="ring" data-tone="idle">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <circle class="ring-track" cx="50" cy="50" r="42" />
+                  <circle class="ring-arc" id="ring-arc" cx="50" cy="50" r="42" />
+                </svg>
+                <div class="ring-num"><b id="ring-given">&ndash;</b><span>of <i id="ring-total">&ndash;</i> done</span></div>
+              </div>
+            </header>
+            <svg class="ecg" viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true">
+              <path class="ecg-base" d="M0 22 H110 L118 22 L124 10 L131 34 L138 4 L145 28 L151 22 H270 L278 22 L284 10 L291 34 L298 4 L305 28 L311 22 H400" />
+              <path class="ecg-run" d="M0 22 H110 L118 22 L124 10 L131 34 L138 4 L145 28 L151 22 H270 L278 22 L284 10 L291 34 L298 4 L305 28 L311 22 H400" />
+            </svg>
+            <div id="card-body"></div>
+            <footer class="card-foot">
+              <p class="legend">
+                <span class="mini given"></span> on
+                <span class="mini due"></span> to do &mdash; tap when done
+                <span class="mini open"></span> needs care
+              </p>
+              <p class="honest">This closes the common doors. Nothing makes a computer 100% safe.</p>
+              <p class="legal-links">
+                <button type="button" data-legal="credits.html">Licences and credits</button> &middot;
+                <button type="button" data-legal="privacy.html">Privacy</button> &middot;
+                <button type="button" data-legal="terms.html">Terms</button>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <dialog id="legal" aria-label="Legal information">
+      <button type="button" class="legal-close">Close</button>
+      <iframe title="Legal information"></iframe>
+    </dialog>
+  </body>
+</html>

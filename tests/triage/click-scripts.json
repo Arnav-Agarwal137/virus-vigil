@@ -1,0 +1,146 @@
+[
+ {
+  "name": "money, all said in the message",
+  "steps": [
+   {
+    "type": "20000 rupees debited from my SBI account yesterday, I didn't share any otp"
+   }
+  ]
+ },
+ {
+  "name": "help menu -> money -> otp -> today",
+  "steps": [
+   {
+    "type": "help"
+   },
+   {
+    "tap": "Money went from my account"
+   },
+   {
+    "tap": "I shared an OTP or PIN"
+   },
+   {
+    "tap": "Today"
+   }
+  ]
+ },
+ {
+  "name": "instagram hacked, locked out",
+  "steps": [
+   {
+    "type": "my instagram got hacked"
+   },
+   {
+    "tap": "No, I'm locked out"
+   }
+  ]
+ },
+ {
+  "name": "link in the message + typed password",
+  "steps": [
+   {
+    "type": "I clicked this link http://sbi-kyc-update.xyz/login and entered my password there"
+   }
+  ]
+ },
+ {
+  "name": "device, skip",
+  "steps": [
+   {
+    "type": "my phone is acting weird"
+   },
+   {
+    "tap": "Skip - just tell me what to do"
+   }
+  ]
+ },
+ {
+  "name": "not what happened -> more -> laptop lost",
+  "steps": [
+   {
+    "type": "i got a strange call"
+   },
+   {
+    "tap": "Skip - just tell me what to do"
+   },
+   {
+    "tap": "That's not what happened"
+   },
+   {
+    "tap": "Something else ›"
+   },
+   {
+    "tap": "My laptop is lost or stolen"
+   },
+   {
+    "tap": "Stolen or snatched"
+   },
+   {
+    "tap": "Yes, it was locked"
+   }
+  ]
+ },
+ {
+  "name": "Hinglish distress -> menu -> type it",
+  "steps": [
+   {
+    "type": "kuch galat ho gaya hai"
+   },
+   {
+    "tap": "Something else ›"
+   },
+   {
+    "tap": "None of these - I'll type it"
+   }
+  ]
+ },
+ {
+  "name": "pasted scam stays a message check",
+  "steps": [
+   {
+    "type": "Dear customer your SBI account KYC is pending, it will be blocked today. Call 9876543210"
+   }
+  ]
+ },
+ {
+  "name": "how-to still answered directly",
+  "steps": [
+   {
+    "type": "how to know if my phone has a virus"
+   }
+  ]
+ },
+ {
+  "name": "phone: acting weird",
+  "mode": "phone",
+  "steps": [
+   {
+    "type": "my phone is acting weird, ads everywhere"
+   }
+  ]
+ },
+ {
+  "name": "phone: app installed from link",
+  "mode": "phone",
+  "steps": [
+   {
+    "type": "I installed an app from a whatsapp link"
+   },
+   {
+    "tap": "Accessibility, or 'install unknown apps'"
+   }
+  ]
+ },
+ {
+  "name": "phone: lost phone no lock",
+  "mode": "phone",
+  "steps": [
+   {
+    "type": "my phone got stolen in the bus"
+   },
+   {
+    "tap": "No screen lock"
+   }
+  ]
+ }
+]

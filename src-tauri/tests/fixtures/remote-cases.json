@@ -1,0 +1,14 @@
+[
+ {"name": "AnyDesk", "path": "C:\\Program Files (x86)\\AnyDesk\\AnyDesk.exe", "want": "AnyDesk"},
+ {"name": "AnyDesk", "path": "C:\\Users\\a\\Downloads\\AnyDesk.exe", "want": null, "why": "same process twice is listed once"},
+ {"name": "TeamViewer_Service", "path": "C:\\Program Files\\TeamViewer\\TeamViewer_Service.exe", "want": "TeamViewer"},
+ {"name": "tv_x64", "path": "C:\\Program Files\\TeamViewer\\tv_x64.exe", "want": "TeamViewer"},
+ {"name": "RustDesk", "path": "C:\\Program Files\\RustDesk\\rustdesk.exe", "want": "RustDesk"},
+ {"name": "msra", "path": "C:\\Windows\\System32\\msra.exe", "want": "Windows Remote Assistance"},
+ {"name": "QuickAssist", "path": "", "want": "Quick Assist"},
+ {"name": "remoting_host", "path": "C:\\Program Files (x86)\\Google\\Chrome Remote Desktop\\remoting_host.exe", "want": "Chrome Remote Desktop"},
+ {"name": "AnyDeskHelper", "path": "", "want": null, "why": "a look-alike name is not the program"},
+ {"name": "myteamviewer", "path": "", "want": null, "why": "substring must not match"},
+ {"name": "notepad", "path": "C:\\Windows\\System32\\notepad.exe", "want": null},
+ {"name": "chrome", "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", "want": null}
+]

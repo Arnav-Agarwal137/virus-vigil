@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy</title>
+<link rel="stylesheet" href="legal.css">
+</head>
+<body><main>
+<h1>Privacy</h1>
+<p class="soft">Last changed 9 October 2026. Virus Vigil checks your device on the device itself. This page lists every piece of information that leaves it, where it goes, and why.</p>
+
+<h2>What stays on your device</h2>
+<ul>
+<li>Your files, photos, messages, contacts and app data. Virus Vigil reads files to check them. It never uploads a file.</li>
+<li>What it found, the lists it downloaded, and the fingerprints it has already worked out, so it does not have to repeat the work.</li>
+<li>There is no account, no sign-in, no advertising and no analytics or tracking code.</li>
+</ul>
+
+<h2>What leaves your device, and only for these reasons</h2>
+<table>
+<tr><th>What is sent</th><th>To whom</th><th>Why</th></tr>
+<tr><td><b>A file's fingerprint</b> (its SHA-256 number, 64 letters and digits). You cannot turn a fingerprint back into the file. It is sent only for files none of the app's own lists knew, and at most 300 in one check.</td><td>CIRCL hashlookup (Luxembourg)</td><td>To learn whether the world's malware collections have already reported that file.</td></tr>
+<tr><td><b>The first 5 characters of a password's hash</b>, only when you ask whether a password has leaked. The password itself never leaves.</td><td>Have I Been Pwned (Pwned Passwords)</td><td>To check the password against known leaks without revealing it.</td></tr>
+<tr><td><b>A question you type</b>, only when you choose to send it to the online helper. Before sending, the app removes phone, card, account and Aadhaar numbers, codes, e-mail and UPI addresses, links and names, and shows you exactly what will go.</td><td>Groq (the online helper)</td><td>To answer a question the app's own library cannot.</td></tr>
+<tr><td><b>A request to download a list.</b> Nothing about you is in it.</td><td>abuse.ch MalwareBazaar, GitHub (Phishing.Database, chrome-mal-ids), CERT Polska (hole.cert.pl)</td><td>To keep the lists of known malware, scam sites and harmful browser add-ons up to date.</td></tr>
+</table>
+<p>Like any internet request, each of these shows the receiving service your device's internet (IP) address. Those services have their own privacy policies. Virus Vigil does not send them your name, your contacts or your files.</p>
+
+<h2>Permissions on a phone</h2>
+<ul>
+<li><b>All files access</b> - to read the files in your storage and check them. Read only; the app never changes or deletes your files.</li>
+<li><b>See installed apps</b> - to check each app against known malware and spy-app lists.</li>
+<li><b>Ask to uninstall apps</b> - lets an Uninstall button open Android's own Uninstall box for an app the check found. Android asks you to confirm; nothing is removed unless you tap OK there.</li>
+<li><b>Internet</b> - only for the four uses in the table above. The app also checks whether the connection is metered, so it does not start the large list download on mobile data.</li>
+</ul>
+
+<h2>Your choices</h2>
+<ul>
+<li>The fingerprint look-up runs as part of a check. To stop anything leaving, switch the internet off before checking: the checks that run on the device still work, and the app says which online steps it could not do.</li>
+<li>The online helper sends nothing unless you press send.</li>
+<li>Uninstalling the app removes everything it stored.</li>
+</ul>
+
+<h2>Contact</h2>
+<p>Questions about this page: open an issue on the project's GitHub page, github.com/Arnav-Agarwal137. The maker runs no server and receives nothing from the app.</p>
+</main></body>
+</html>

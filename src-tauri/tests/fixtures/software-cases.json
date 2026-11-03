@@ -1,0 +1,18 @@
+[
+  {"name": "WinRAR 7.13 (64-bit)", "version": "7.13.0", "id": "winrar", "old": false},
+  {"name": "WinRAR 7.12 (64-bit)", "version": "7.12.0", "id": "winrar", "old": true},
+  {"name": "WinRAR 6.23 (64-bit)", "version": "6.23.0", "id": "winrar", "old": true},
+  {"name": "WinRAR 7.20 (64-bit)", "version": "7.20.0", "id": "winrar", "old": false},
+  {"name": "WinRAR 5.50 (32-bit)", "version": "", "id": "winrar", "old": true},
+  {"name": "7-Zip 24.09 (x64)", "version": "24.09", "id": "7zip", "old": false},
+  {"name": "7-Zip 24.08 (x64)", "version": "24.08", "id": "7zip", "old": true},
+  {"name": "7-Zip 9.20 (x64 edition)", "version": "9.20.00.0", "id": "7zip", "old": true},
+  {"name": "7-Zip 25.01 (x64)", "version": "25.01", "id": "7zip", "old": false},
+  {"name": "7-Zip", "version": "", "id": "7zip", "old": null},
+  {"name": "WinRAR (64-bit)", "version": "", "id": "winrar", "old": null},
+  {"name": "7-Zip 23.01 (x64)", "version": "", "id": "7zip", "old": true},
+  {"name": "Java 8 Update 471 (64-bit)", "version": "8.0.4710.9", "id": "java", "old": null},
+  {"name": "Java(TM) SE Development Kit 21.0.5 (64-bit)", "version": "21.0.5.0", "id": null},
+  {"name": "WinRAR-like Archiver", "version": "1.0", "id": null},
+  {"name": "Notepad++ (64-bit x64)", "version": "8.7", "id": null}
+]

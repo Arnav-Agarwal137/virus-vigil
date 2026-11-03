@@ -1,0 +1,12 @@
+[
+ "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE",
+ "android.permission.BLUETOOTH_CONNECT",
+ "android.permission.DUMP",
+ "android.permission.FOREGROUND_SERVICE",
+ "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+ "android.permission.MODIFY_AUDIO_SETTINGS",
+ "android.permission.POST_NOTIFICATIONS",
+ "android.permission.RECEIVE_BOOT_COMPLETED",
+ "android.permission.RECORD_AUDIO",
+ "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"
+]

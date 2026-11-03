@@ -1,0 +1,13 @@
+Rule sets copied unchanged (rule files + LICENSE + README only) for Virus Vigil's file check.
+rl        = github.com/reversinglabs/reversinglabs-yara-rules  commit e0a0be5 2025-11-03  MIT
+bartblaze = github.com/bartblaze/Yara-rules                    commit 5cc871d 2026-01-28  MIT
+Copied 25 Sep 2026 from D:/dev/yara-rules. Keep each rule's meta (author, reference) - both READMEs ask for it.
+yarahub = yaraify.abuse.ch/yarahub/yaraify-rules.zip (public, no key), downloaded 29 Sep 2026 ~02:40 IST, zip sha256 prefix 087d9f7af54f786f, 1,107 files.
+  Copied UNCHANGED: only the 35 Android rule files, only licence CC0 1.0 or CC BY 4.0, only TLP:WHITE (tests_yara checks every file).
+  Left out: Detect_TSUNAMI (Python), MIRAI_LOADER_dvrhelper (Linux routers) - not Android. Each rule keeps its own author meta (CC BY 4.0 credit).
+yarahub-win = the same zip, downloaded 2 Nov 2026 ~22:40 IST, zip sha256 prefix 62e007459bb015bc, 1,797 files.
+  Copied UNCHANGED: non-Android files whose every rule is CC0 1.0 or CC BY 4.0 and TLP:WHITE (1,633), minus 6 that
+  Defender itself blocks (dropper scripts inside the rule text), 8 that do not compile under yara-x 1.19 and every
+  file that fired on a clean System32 / Program Files program. Laptop only; all "weak" (policy.txt).
+  Also left out: SCRIPT_Dropper_Unknown_ForgeAuto_aaa464f7, SUSP_Script_PowerShell_Hidden_Launcher - they match Vigil's own
+  program (it carries its PowerShell helper scripts); tests_yara vigils_own_program_matches_none_of_its_rules.

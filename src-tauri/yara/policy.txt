@@ -1,0 +1,84 @@
+# Which rule files Vigil leaves out (quiet) and which only ever say "worth a look" (weak).
+# Read by build.rs and stored DEFLATED with the rules (29 Sep 2026): written as plain strings in
+# yara.rs, these paths put rule names such as SharpHostInfo into Vigil's own program, and the
+# rules that look for those names matched Vigil itself.
+#
+# quiet <path> | <why>   - left out, each for a MEASURED false alarm. Add one only with its own measurement.
+# weak <path>            - a LOOSE pattern: "worth a look", never "delete it". A path ending in / = a whole folder.
+
+# 25 Sep 2026: all 1,383 rules over 45,676 clean programs in System32 + both Program Files = 45 GB;
+# these two made all 21 hits, every other rule made none.
+quiet bartblaze/rules/ransomware/Avaddon.yar | fires on Chrome, Edge, CEF and Qt browser engines (19 of 21 hits)
+quiet bartblaze/rules/hacktools/Extract_MachineKey_SharePoint.yar | fires on Microsoft's own System.Web.dll (2 of 21 hits)
+# 29 Sep 2026: every rule over the 96 clean Google system APKs of D:/dev/phone-clean, their code
+# decompressed for the first time (apk_view). These three made all 50 hits; no other rule made any.
+quiet yarahub/ANDROID_Sample_Unique_5be608a5.yar | its two strings are stock Material Design icon outlines (the 'eye' and a square) - 41 of 96 clean Google apps
+quiet yarahub/Android_ElectricityBill_Miner_APK.yar | any ONE of Firebase push messaging, a hidden-launcher category or 2 everyday permissions is enough - 13 of 96 clean Google apps
+quiet yarahub/Android_Accessibility_Service_Abuse.yar | 45 of 96 clean Google apps: a 'worth a look' that fires on half of all genuine apps says nothing
+
+# WEAK (26 Sep 2026): the first uncapped sweep of his own files called 14 ordinary files harmful;
+# the rule-made ones were his own desktop shortcuts (LNK_Ruleset), a Temp file (AutoIT) and a JSON
+# listing of rule names. Three kinds, each by what the rule is FOR: packers/builders that honest
+# programs use too; tricks seen in malware AND in ordinary files; dual-use admin/security tools,
+# which are not malware on the machine of the person who installed them. Implants, backdoors, C2
+# beacons and exploits (GrimResource, WinRAR_ADS_Traversal, Webshell_in_image, HiddenVNC,
+# IIS_Backdoor, IISRaid, Mythic, Adaptix_Beacon, GhostShell) stay strong.
+
+# YARAhub Android rules that describe a BEHAVIOUR ordinary apps share (29 Sep 2026): admin +
+# accessibility (password managers, launchers), a Firebase database address; android_apk_hook =
+# the Bitcoin genesis address (in many crypto libraries) + "openwhatsapp".
+# 29 Sep 2026 evening: made ONLY of two permission names, so it matches any text that mentions them:
+# 54 of 235,811 files in his laptop sweep (web pages, browser cache, Vigil's own knowledge.js) and
+# Android's own permission manager among 249 stock apps on the emulator; not one real find.
+quiet yarahub/Android_Admin_And_Accessibility.yar | 54 ordinary laptop files + Android's own permission manager; no real find
+weak yarahub/Android_Firebase_C2_Hunter.yar
+weak yarahub/android_apk_hook.yar
+# Jeevan: its package name is the real open-source SmsForwarder app, which the malware
+# repackaged - the genuine app matches too.
+weak yarahub/Jeevan_SMS_Forwarder_APK.yar
+
+# packers and builders
+weak bartblaze/rules/generic/AutoIT.yar
+weak bartblaze/rules/generic/Costura_Protobuf.yar
+weak bartblaze/rules/generic/DotNet_Reactor.yar
+weak bartblaze/rules/generic/EnigmaStub.yar
+weak bartblaze/rules/generic/VMProtectStub.yar
+weak bartblaze/rules/generic/PyInstaller.yar
+# tricks also found in ordinary files
+weak bartblaze/rules/generic/LNK_Ruleset.yar
+weak bartblaze/rules/generic/MalScript_Tricks.yar
+weak bartblaze/rules/generic/Hidden.yar
+weak bartblaze/rules/generic/IEuser_author_doc.yar
+weak bartblaze/rules/generic/ISO_exec.yar
+weak bartblaze/rules/generic/Specialist_Repack_Doc.yar
+weak bartblaze/rules/generic/OneNote_BuildPath.yar
+weak bartblaze/rules/generic/OLEfile_in_CAD_FAS_LSP.yar
+weak bartblaze/rules/generic/Generic_Phishing_PDF.yar
+weak bartblaze/rules/generic/oAuth_Phishing_PDF.yar
+weak bartblaze/rules/generic/MiniTor.yar
+weak bartblaze/rules/generic/Rclone.yar
+# dual-use admin and security tools
+weak bartblaze/rules/hacktools/Adfind.yar
+weak bartblaze/rules/hacktools/CreateMiniDump.yar
+weak bartblaze/rules/hacktools/DefenderControl.yar
+weak bartblaze/rules/hacktools/Gmer.yar
+weak bartblaze/rules/hacktools/Gmer_Driver.yar
+weak bartblaze/rules/hacktools/Impacket.yar
+weak bartblaze/rules/hacktools/KPortScan.yar
+weak bartblaze/rules/hacktools/LaZagne.yar
+weak bartblaze/rules/hacktools/NLBrute.yar
+weak bartblaze/rules/hacktools/Orca.yar
+weak bartblaze/rules/hacktools/PowerTool.yar
+weak bartblaze/rules/hacktools/RDPWrap.yar
+weak bartblaze/rules/hacktools/Responder.yar
+weak bartblaze/rules/hacktools/SharpAdidnsdump.yar
+weak bartblaze/rules/hacktools/SharpHostInfo.yar
+weak bartblaze/rules/hacktools/Windows_Credentials_Editor.yar
+# "potentially unwanted", by the rule set's own folder
+weak rl/yara/pua/
+
+# 2 Nov 2026: YARAhub LAPTOP rules (yarahub-win/), CC0 / CC BY 4.0, TLP:WHITE only. Measured over the clean
+# programs of System32 + both Program Files: 126 rule files fired on clean files (6,694 of 7,310 System32
+# files hit, mostly auto-generated ForgeAuto / Sample_Unique rules) and were NOT copied. The rest stayed
+# silent, but they are many small community rules, so every one of them only says "worth a look".
+weak yarahub-win/

@@ -1,0 +1,19 @@
+{
+  "masters": { "webcam": "Allow", "microphone": "Deny" },
+  "webcam": [
+    { "key": "C:#Windows#explorer.exe", "packaged": false, "start": 134347176000000000, "stop": 0, "value": "Allow",
+      "want": { "listed": true, "inUse": true, "exists": true, "signature": "Valid" } },
+    { "key": "C:#Users#nobody#AppData#Local#Temp#spycam.exe", "packaged": false, "start": 134343720000000000, "stop": 134343723000000000, "value": "Allow",
+      "want": { "listed": true, "inUse": false, "exists": false, "signature": null } },
+    { "key": "Microsoft.WindowsCamera_8wekyb3d8bbwe", "packaged": true, "start": 134327304000000000, "stop": 134327304600000000, "value": "Allow",
+      "want": { "listed": true, "inUse": false, "exists": null, "signature": null } },
+    { "key": "Microsoft.SkypeApp_kzf8qxf38zg5c", "packaged": true, "start": 134343723000000000, "stop": 134343720000000000, "value": "Allow",
+      "want": { "listed": true, "inUse": true } },
+    { "key": "Microsoft.Neverused_8wekyb3d8bbwe", "packaged": true, "start": 0, "stop": 0, "value": "Allow",
+      "want": { "listed": false } }
+  ],
+  "microphone": [
+    { "key": "5319275A.WhatsAppDesktop_cv1g1gvanyjgm", "packaged": true, "start": 134327304000000000, "stop": 134327304600000000, "value": "Allow",
+      "want": { "listed": true, "inUse": false } }
+  ]
+}

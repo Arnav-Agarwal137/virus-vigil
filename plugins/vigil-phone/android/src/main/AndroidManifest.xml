@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Password range + phishing list downloads (made by the plugin, not the page). -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- See every installed app: normal protection level, no prompt (developer.android.com). -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <!-- Is the Wi-Fi we are on open? -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Sweep every file in shared storage (29 Sep: "is it actually scanning?"). Android 11+
+         grants it only by the person switching "All files access" on for Vigil in Settings;
+         before 11 the ordinary read permission is enough. Read-only use: nothing is written there. -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <!-- "Uninstall <app>" (8 Oct 2026): opens Android's own uninstall box (ACTION_DELETE), which the
+         person confirms. Needed for ACTION_DELETE from Android 9. Vigil never removes anything itself. -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <queries>
+        <!-- Required by Telephony.Sms.getDefaultSmsPackage on Android 11+ (its reference page). -->
+        <intent>
+            <action android:name="android.provider.Telephony.SMS_DELIVER" />
+        </intent>
+    </queries>
+</manifest>
