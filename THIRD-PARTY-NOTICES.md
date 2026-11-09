@@ -1,7 +1,9 @@
 # Third-party notices - Virus Vigil
 
-Virus Vigil itself is Copyright (c) 2026 Arnav Agarwal, PolyForm Noncommercial 1.0.0 (see LICENSE). It uses or works
-with the following, each under its own terms. Full licence texts are in `src/licenses.txt` and `src/fonts/OFL.txt`,
+Virus Vigil itself is Copyright (c) 2026 Arnav Agarwal. Newly licensed original work uses the root LICENSE;
+earlier PolyForm grants remain in force (see LICENSE-HISTORY.md). It uses or works with the following, each
+under its own terms. Full texts and in-app credits are described below.
+Full licence texts are in `src/licenses.txt` and `src/fonts/OFL.txt`,
 and inside the app (the "Licences and credits" link at the bottom of the page), which also names every Rust library.
 
 ## Malware knowledge shipped inside the app

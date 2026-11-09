@@ -19,17 +19,15 @@ the device is safe. See [DISCLAIMER.md](DISCLAIMER.md).
 
 ## Licence
 
-Copyright (c) 2026 Arnav Agarwal. Released under the **PolyForm Noncommercial License 1.0.0** ([LICENSE](LICENSE)).
+Free noncommercial use and private improvements are permitted for newly licensed original work.
+Share the official links freely. Redistributing copies, publishing modified versions, public mirrors,
+rebranding, and commercial use require Arnav Agarwal's prior written permission.
+Keep authorship and required notices. This is a source-available custom licence, not an open-source licence.
+Earlier licence grants and third-party rights remain in force; see [LICENSE-HISTORY.md](LICENSE-HISTORY.md).
+Previously published source, embedded app notices, tags and downloadable binaries retain their earlier grants;
+this policy does not retroactively prohibit their previously permitted use or distribution.
 
-In plain words: you may use it, change it and share it, free, for any **non-commercial** purpose. Selling it, putting
-it inside something you sell, or using it to earn money needs a separate licence from the owner - see
-[COMMERCIAL.md](COMMERCIAL.md).
-
-This is a "source-available" licence, not an OSI "open source" licence, so app stores that list only open-source apps
-(for example F-Droid) will not list it.
-
-The malware rules, lists and libraries inside the app belong to their authors and keep their own licences; see
-[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+Full terms: [LICENSE](LICENSE). Permission requests: [GitHub issues](https://github.com/Arnav-Agarwal137/virus-vigil/issues).
 
 ## Build
 
