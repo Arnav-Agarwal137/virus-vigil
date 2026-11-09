@@ -1,21 +1,65 @@
 # Virus Vigil
 
-A malware, spy-app and scam checker that explains what it finds in plain words. It runs on the device it is checking:
+## Security warnings you can actually do something about.
 
-- **Laptop (Windows 10/11)** - checks files and folders against known malware fingerprints and YARA rules, looks for
-  spy and remote-control software, reads the security settings that matter (Defender, firewall, SmartScreen, account
-  control and more) and, only after you approve each change, can switch the weak ones to safe values. Every change it
-  makes can be undone from the app.
-- **Phone (Android 7 or newer)** - checks every installed app against known malware and spy-app lists, checks files in
-  your storage, and walks you through the fixes Android lets an app start (the app opens the right Settings page or
-  Android's own Uninstall box; you make the tap).
+A list of red flags is not much help if you do not know which ones matter or how to fix them. I wanted the explanation and the next step in the same place.
 
-**What leaves your device:** a file's fingerprint (never the file), the first 5 characters of a password's hash when
-you ask about a password, a question you choose to send to the optional online helper, and plain list downloads. The
-full list, with who receives each one and why: [PRIVACY.md](PRIVACY.md).
+Virus Vigil checks for known malware, suspicious apps and weak security settings. It explains what it found in plain words, and keeps you in charge of changes.
 
-**No security tool catches everything.** A clean result means nothing was found in what was checked; it does not mean
-the device is safe. See [DISCLAIMER.md](DISCLAIMER.md).
+**[See how it works](#what-it-checks) · [Build from source](docs/BUILDING.md) · [Privacy](PRIVACY.md)**
+
+**Release status:** Windows and Android source is public. There is currently **no public APK or Windows installer** in this repository's releases. Do not download a random binary claiming to be an official Virus Vigil release.
+
+<p align="center"><img src="docs/images/vigil-android.png" alt="Virus Vigil explaining update, Wi-Fi and app-permission concerns on an Android test device" width="320"></p>
+
+*Android development screenshot from a test device. These findings describe that test environment, not your phone.*
+
+## What it checks
+
+| On Windows | On Android |
+|---|---|
+| Files and folders against known-malware hashes and YARA rules | Installed apps against malware and stalkerware indicators |
+| Spy and remote-control software indicators | Files in storage you allow it to read |
+| Defender, firewall, SmartScreen and other security settings | Update, network and permission concerns Android exposes |
+| Browser security checks and guided fixes | Links to Settings or Android's own uninstall confirmation |
+
+The app also has **Is this safe?** checks and an optional online helper. A detection is something to investigate, not proof that every flagged file or app is malicious.
+
+## How a check works
+
+1. Choose the device or files to check. On Android, grant access after reading the explanation.
+2. Let local checks compare fingerprints, pattern rules and device settings.
+3. Read the reason beside each finding.
+4. Choose the fix yourself. Windows changes require approval and have undo actions. Android opens system controls for you to confirm.
+
+Virus Vigil does not silently delete your files. It helps inspect and improve a device; it does not replace Windows Defender, Android's protections or professional incident response.
+
+## What leaves your device?
+
+**The app does not upload scanned files.** It is not entirely offline:
+
+- Unknown file hashes can be checked with CIRCL hashlookup. A hash identifies a file even though it is not the file's contents.
+- Password checks send only the first five characters of a hash to Have I Been Pwned.
+- Malware and scam lists are downloaded from their providers.
+- The optional helper sends the question you choose to submit to Groq, using a configured key.
+
+Those services receive normal network information such as your IP address. There is no app account, advertising or analytics; I do not run a server collecting your scans. [PRIVACY.md](PRIVACY.md) lists recipients, limits and permissions.
+
+A clean scan means no threat was found in what was checked. It cannot prove a device is safe, catch every unknown attack or rule out false positives. Read the [disclaimer](DISCLAIMER.md).
+
+## How I built it
+
+Rust handles deeper file checks and desktop integration. A web interface runs inside Tauri 2; an Android plugin handles phone-specific checks. Detection inputs and libraries come from multiple sources, with attribution and their own licences in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
+The repo includes Rust and browser test suites. Some tests need sample APK fixtures that are intentionally not distributed; [the build guide](docs/BUILDING.md#tests) explains how to supply or regenerate them. Tests are evidence about behaviour, not an independent antivirus certification.
+
+A local build needs Rust, Node.js and the platform tooling in [docs/BUILDING.md](docs/BUILDING.md). The optional online helper has **no included API key**. Do not embed your key in a binary you distribute.
+
+## Help make it less confusing
+
+If a warning is wrong or unclear, [open an issue](https://github.com/Arnav-Agarwal137/virus-vigil/issues) with the message and OS version. Do not upload private files or live malware. A SHA-256 hash or harmless reproduction is enough to start.
+
+Built by [Arnav Agarwal](https://github.com/Arnav-Agarwal137). Independent of Microsoft, Google and the security-data providers it uses.
 
 ## Licence
 
@@ -28,39 +72,3 @@ Previously published source, embedded app notices, tags and downloadable binarie
 this policy does not retroactively prohibit their previously permitted use or distribution.
 
 Full terms: [LICENSE](LICENSE). Permission requests: [GitHub issues](https://github.com/Arnav-Agarwal137/virus-vigil/issues).
-
-## Build
-
-The app is built with [Tauri 2](https://tauri.app) (Rust + a web page). You need Rust, Node.js and, for the phone,
-JDK 21, the Android SDK and NDK.
-
-```
-npm install
-npm run tauri build                          # Windows installer
-bash build-android.sh aarch64 release        # Android APK
-```
-
-`build-android.sh` reads `ANDROID_HOME`, `NDK_HOME` and `JAVA_HOME` from your environment. A release APK is signed
-only with your own signing file; **no signing key is included in this repository.**
-
-**The optional online helper needs a Groq API key, and none is included.** Without one the helper says it is not set
-up and everything else works. On a laptop, set the environment variable `GROQ_API_KEY` before starting the app. Do
-not bake your own key into a build you give to other people: anyone holding the file can pull it out.
-
-## Tests
-
-```
-cd src-tauri && cargo test          # Rust checks
-cd tests/page && bash run.sh *.mjs  # page checks in a headless Chrome; always name the suites
-```
-
-Some Rust tests read sample APK files that are **not included** (they are built apps, and one is another project's
-GPL-3 app). `src-tauri/tests/make_deeplook_fixtures.py` (run from `src-tauri/`) rebuilds the samples it can; tests whose sample is missing will fail
-until you add your own.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). Questions, bugs and licence requests: open an issue on GitHub.
-
-Virus Vigil is an independent project. It is not connected to, endorsed by or affiliated with Microsoft, Google,
-abuse.ch, CIRCL, Have I Been Pwned, Groq or any antivirus maker. Product names mentioned belong to their owners.
