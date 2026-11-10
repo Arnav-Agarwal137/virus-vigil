@@ -12,13 +12,12 @@ and inside the app (the "Licences and credits" link at the bottom of the page), 
 |---|---|---|
 | YARA rules | ReversingLabs (github.com/reversinglabs/reversinglabs-yara-rules) | MIT |
 | YARA rules | bartblaze (github.com/bartblaze/Yara-rules) | MIT |
-| YARAhub rules | their individual authors, via abuse.ch YARAify | Only rules released as CC0 1.0 or CC BY 4.0; the 5 CC BY 4.0 rules are credited by name in the app |
+| YARAhub rules | their individual authors, via abuse.ch YARAify | Only rules released as CC0 1.0 or CC BY 4.0; the in-app credits name 477 CC BY rules across the platform-specific sets. Windows-only rules are not compiled into Android. |
 | Stalkerware indicators | Echap and contributors (github.com/AssoEchap/stalkerware-indicators) | CC BY 4.0 |
 | App-protector file names: 84 | Detect It Easy, horsicq, DosX and contributors | MIT |
 | App-protector file names: 20 | LibChecker-Rules contributors | Apache License 2.0 |
 | App-protector file names: 3 | mHook, xiamiya | Apache License 2.0 |
 | App-protector file names: 5 | published research (Virus Bulletin 2014; Fortinet, CARO 2014; a 2017 survey) | facts from publications |
-| App-protector file names: 11 | first noted in APKiD by RedNaga | Only the bare file names are used, none of its rules or code |
 
 ## Lists and services the app asks (not included; downloaded or asked at run time)
 
@@ -26,7 +25,7 @@ and inside the app (the "Licences and credits" link at the bottom of the page), 
 |---|---|---|
 | MalwareBazaar known-malware fingerprints | abuse.ch | abuse.ch's terms of use |
 | hashlookup (fingerprint look-up) | CIRCL, Luxembourg | CIRCL's terms |
-| Pwned Passwords | Have I Been Pwned | CC BY 4.0, k-anonymity API |
+| Pwned Passwords | Have I Been Pwned | Pwned Passwords API terms; k-anonymity API. Its password service does not require licensing or attribution; the breach-search API has separate terms. |
 | Phishing.Database | Mitchell Krog and contributors | MIT |
 | Warning List (phishing domains) | CERT Polska (NASK-PIB) | Data usage policy at cert.pl/en/warning-list: "any purpose, including commercial purposes", no attribution required |
 | chrome-mal-ids | The Privacy Commons Institute | CC BY 4.0 |

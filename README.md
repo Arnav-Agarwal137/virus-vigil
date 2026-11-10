@@ -6,9 +6,13 @@ A list of red flags is not much help if you do not know which ones matter or how
 
 Virus Vigil checks for known malware, suspicious apps and weak security settings. It explains what it found in plain words, and keeps you in charge of changes.
 
-**[See how it works](#what-it-checks) · [Build from source](docs/BUILDING.md) · [Privacy](PRIVACY.md)**
+**[Download Android APK](https://github.com/Arnav-Agarwal137/virus-vigil/releases/tag/v0.1.38) · [See how it works](#what-it-checks) · [Build from source](docs/BUILDING.md) · [Privacy](PRIVACY.md)**
 
-**Release status:** Windows and Android source is public. There is currently **no public APK or Windows installer** in this repository's releases. Do not download a random binary claiming to be an official Virus Vigil release.
+**Release status:** Android **0.1.38** is available as a signed **development-preview APK** for ARM64 devices running Android 7 or newer. Download it from this repository's [official release](https://github.com/Arnav-Agarwal137/virus-vigil/releases/tag/v0.1.38), which includes a SHA-256 checksum and legal notices. There is no public Windows installer yet.
+
+This APK contains no developer API keys. The optional online helper and authenticated MalwareBazaar downloads are not preconfigured. Read the release notes before installing. Android will ask you to permit installation from the browser or file manager you use; do not disable Play Protect.
+
+The APK predates the 9 November licence change and retains its **PolyForm Noncommercial 1.0.0** grant, including permitted noncommercial redistribution. The newer repository licence does not cancel earlier grants. See [licence history](LICENSE-HISTORY.md) and the release's notices.
 
 <p align="center"><img src="docs/images/vigil-android.png" alt="Virus Vigil explaining update, Wi-Fi and app-permission concerns on an Android test device" width="320"></p>
 
